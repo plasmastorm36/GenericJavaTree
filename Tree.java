@@ -51,7 +51,7 @@ public final class Tree<E> implements Iterable<E> {
           * Parameters:
           * None
           */
-         return i >= list.size();
+         return i < list.size();
       }
    }
 
@@ -219,11 +219,12 @@ public final class Tree<E> implements Iterable<E> {
       }
       final ArrayList<Node<E>> positions = new ArrayList<Node<E>>();
       final Queue<Node<E>> q = new Queue<Node<E>>();
+      Node<E> position;
       q.enqueue(root);
       while(!q.isEmpty()) {
-         p = q.dequeue();
-         positions.add(p);
-         for (final Node<E> i: p.children) {
+         position = q.dequeue();
+         positions.add(position);
+         for (final Node<E> i: position.children) {
             q.enqueue(i);
          }
       }
