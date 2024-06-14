@@ -30,7 +30,7 @@ public final class Tree<E> implements Iterable<E> {
 
    private static class Iterator<E> implements java.util.Iterator<E> {
       private final ArrayList<Node<E>> list;
-      private int i = -1; // index
+      private int i = 0; // index
       public Iterator (final ArrayList<Node<E>> treeArrayList) {
          list = treeArrayList;
       }
@@ -41,8 +41,7 @@ public final class Tree<E> implements Iterable<E> {
           * Parameters:
           * None
           */
-         i++;
-         return list.get(i).element;
+         return list.get(i++).element;
       }
 
       public boolean hasNext () {
@@ -51,7 +50,7 @@ public final class Tree<E> implements Iterable<E> {
           * Parameters:
           * None
           */
-         return i < list.size();
+         return i <= list.size() - 1;
       }
    }
 
